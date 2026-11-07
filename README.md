@@ -2,7 +2,7 @@
 
 給大學生的飲食、運動、睡眠小知識網站。每一頁只講一個主題，3 分鐘讀完，並附上今天就能做的具體行動。
 
-- 網站連結：`https://你的帳號.github.io/health-life/`
+  - 網站連結：https://stella7-lang.github.io/health-life/`
 - AI 規則文件：[AGENTS.md](AGENTS.md)
 
 ## 目前主題
