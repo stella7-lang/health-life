@@ -1,0 +1,223 @@
+/* =========================================
+   健康生活小百科 — 全站唯一樣式檔
+   新增樣式前請先看 AGENTS.md 第 2、5 節
+   ========================================= */
+
+/* ---------- 1. 色彩變數 ---------- */
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --text: #2b2b2b;
+  --muted: #6b6b6b;
+  --border: #e8e4dc;
+
+  /* 分類色：飲食 / 運動 / 睡眠 */
+  --diet: #3f8f5b;
+  --diet-soft: #e7f4ec;
+  --exercise: #d9772b;
+  --exercise-soft: #fcefe3;
+  --sleep: #5b5fc7;
+  --sleep-soft: #ecedfb;
+
+  /* 主題頁會依 body class 換掉這兩個 */
+  --accent: #3f8f5b;
+  --accent-soft: #e7f4ec;
+}
+
+.theme-diet     { --accent: var(--diet);     --accent-soft: var(--diet-soft); }
+.theme-exercise { --accent: var(--exercise); --accent-soft: var(--exercise-soft); }
+.theme-sleep    { --accent: var(--sleep);    --accent-soft: var(--sleep-soft); }
+
+/* ---------- 2. 基本設定 ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC",
+    "Microsoft JhengHei", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+a { color: var(--accent); }
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- 3. 頁首 / 頁尾 ---------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+}
+.back-link {
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.site-footer {
+  margin-top: 64px;
+  padding: 24px 0 40px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- 4. 分類標籤 ---------- */
+.tag {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.tag-diet     { background: var(--diet-soft);     color: var(--diet); }
+.tag-exercise { background: var(--exercise-soft); color: var(--exercise); }
+.tag-sleep    { background: var(--sleep-soft);    color: var(--sleep); }
+
+/* ---------- 5. 首頁 ---------- */
+.hero {
+  padding: 56px 0 24px;
+}
+.hero h1 {
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+.hero p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.category {
+  margin-top: 40px;
+}
+.category h2 {
+  font-size: 22px;
+  border-left: 5px solid var(--accent);
+  padding-left: 12px;
+}
+.category.diet     { --accent: var(--diet); }
+.category.exercise { --accent: var(--exercise); }
+.category.sleep    { --accent: var(--sleep); }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card {
+  display: block;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+.card h3 {
+  margin: 10px 0 6px;
+  font-size: 19px;
+}
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+.empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---------- 6. 主題頁 ---------- */
+.article-header {
+  padding: 44px 0 8px;
+}
+.article-header h1 {
+  font-size: 32px;
+  margin: 12px 0 0;
+}
+
+.article h2 {
+  font-size: 22px;
+  margin-top: 40px;
+  color: var(--accent);
+}
+
+.key-point {
+  margin: 24px 0;
+  padding: 18px 22px;
+  background: var(--accent-soft);
+  border-left: 5px solid var(--accent);
+  border-radius: 10px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+}
+.checklist li {
+  position: relative;
+  padding: 10px 0 10px 34px;
+  border-bottom: 1px dashed var(--border);
+}
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 4px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.myth {
+  margin: 16px 0;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.myth p { margin: 4px 0; }
+.myth .label {
+  display: inline-block;
+  min-width: 3em;
+  font-weight: 700;
+}
+.myth .label.wrong { color: #c0392b; }
+.myth .label.right { color: var(--accent); }
+
+.refs {
+  font-size: 15px;
+  color: var(--muted);
+}
+.refs li { margin-bottom: 6px; }
+
+.disclaimer {
+  margin-top: 40px;
+  padding: 14px 18px;
+  background: #f3f1ec;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
